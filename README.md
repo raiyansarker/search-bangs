@@ -1,13 +1,88 @@
-# Unduck
+# Search
 
-DuckDuckGo's bang redirects are too slow. Add the following URL as a custom search engine to your browser. Enables all of DuckDuckGo's bangs to work, but much faster.
+A blazingly fast default search engine with built-in DuckDuckGo bang shortcuts.
 
+This project is a clean, minimal fork of [unduck](https://unduck.link) by [Theo](https://x.com/theo), maintained by [Raiyan Sarker](https://raiyansarker.com).
+
+## Overview
+
+DuckDuckGo's bang redirects can be slow because they perform redirects server-side. **Search** handles all bang matching and URL redirection entirely on the client side inside your browser. After the initial page load, all assets are cached and redirection occurs instantly on your device without waiting for extra server hops.
+
+## Custom Search URLs
+
+To set up Search in your browser, use the following URL templates:
+
+### Search Engine URL
+```text
+https://search-bangs.vercel.app?q=%s
 ```
-https://unduck.link?q=%s
+*(Replace domain with your hosted instance URL)*
+
+### Google Search Suggestion URL (Optional)
+```text
+https://suggestqueries.google.com/complete/search?client=chrome&q=%s
 ```
 
-## How is it that much faster?
+---
 
-DuckDuckGo does their redirects server side. Their DNS is...not always great. Result is that it often takes ages.
+## Instructions: Enabling Search in Your Browser
 
-I solved this by doing all of the work client side. Once you've went to https://unduck.link once, the JS is all cache'd and will never need to be downloaded again. Your device does the redirects, not me.
+### Chrome / Brave / Edge
+1. Open **Settings** &rarr; **Search engine** &rarr; **Manage search engines and site search**.
+2. Scroll to **Site search** and click **Add**.
+3. Fill out the fields:
+   - **Name**: `Search`
+   - **Shortcut**: `:s` or `s`
+   - **URL with %s in place of query**: `https://<your-domain>?q=%s`
+4. *(Optional)* Add the Google Suggestion URL if your browser supports custom suggestion endpoints.
+5. Click the three dots next to the entry and select **Make default**.
+
+### Firefox
+1. Open **Settings** &rarr; **Search**.
+2. Scroll to **Search Shortcuts** and click **Add**.
+3. Set **Name** to `Search` and paste `https://<your-domain>?q=%s` into the **URL** field.
+4. *(Optional)* Paste `https://suggestqueries.google.com/complete/search?client=chrome&q=%s` into **Search suggestions URL**.
+5. Assign a keyword (e.g. `s`) or select it as your default search engine.
+
+### Safari
+1. Install a custom search extension like **xSearch** or **Keyword Search** from the App Store.
+2. Add a custom engine mapping using `https://<your-domain>?q=%s`.
+
+---
+
+## Features & Usage
+
+- **Default Search**: Typing `search query` routes to your configured default search engine (Google by default).
+- **Bang Shortcuts**: Use any DuckDuckGo bang prefix or suffix:
+  - `!g cat photos` &rarr; Searches Google for "cat photos"
+  - `!gh search-bangs` &rarr; Searches GitHub for "search-bangs"
+  - `!yt lo-fi beats` &rarr; Searches YouTube for "lo-fi beats"
+  - `!w quantum computing` &rarr; Searches Wikipedia
+- **Direct Domain Banging**: Typing just `!gh` takes you directly to `github.com`.
+
+---
+
+## Local Development
+
+```bash
+# Clone the repository
+git clone https://github.com/raiyansarker/search-bangs.git
+cd search-bangs
+
+# Install dependencies (using Bun or NPM)
+bun install
+
+# Start local development server
+bun run dev
+
+# Build production bundle
+bun run build
+```
+
+---
+
+## Credits & License
+
+- Original project by [Theo](https://x.com/theo) ([unduck.link](https://unduck.link) / [GitHub repository](https://github.com/t3dotgg/unduck)).
+- Maintained by [Raiyan Sarker](https://raiyansarker.com) ([GitHub](https://github.com/raiyansarker/search-bangs)).
+- Licensed under the [MIT License](LICENSE).
