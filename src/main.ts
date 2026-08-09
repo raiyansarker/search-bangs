@@ -11,7 +11,7 @@ function noSearchDefaultPageRender() {
     <div class="page-layout">
       <main class="content-container">
         <h1 class="brand-title">Search</h1>
-        <p class="tagline">Fast browser search with built-in bang shortcuts.</p>
+        <p class="tagline">Fast browser search with built-in bang shortcuts. 100% private with zero tracking.</p>
         
         <div class="url-block">
           <span class="url-label">Search Engine URL</span>
@@ -75,7 +75,7 @@ function noSearchDefaultPageRender() {
       </main>
 
       <footer class="footer">
-        A fork of <a href="https://unduck.link" target="_blank" rel="noopener noreferrer">unduck</a> by <a href="https://x.com/theo" target="_blank" rel="noopener noreferrer">Theo</a> • Maintained by <a href="https://raiyansarker.com" target="_blank" rel="noopener noreferrer">Raiyan</a> • <a href="https://github.com/raiyansarker/search-bangs" target="_blank" rel="noopener noreferrer">GitHub</a>
+        A fork of <a href="https://unduck.link" target="_blank" rel="noopener noreferrer">unduck</a> by <a href="https://x.com/theo" target="_blank" rel="noopener noreferrer">Theo</a> • Maintained by <a href="https://raiyansarker.com?utm_source=search_app&utm_medium=footer&utm_campaign=referral" target="_blank" rel="noopener noreferrer">Raiyan</a> • <a href="https://github.com/raiyansarker/search-bangs?utm_source=search_app&utm_medium=footer&utm_campaign=referral" target="_blank" rel="noopener noreferrer">GitHub</a>
       </footer>
     </div>
   `;
